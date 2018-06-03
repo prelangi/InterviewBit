@@ -13,3 +13,8 @@ Solutions in Swift/C++ for interviewbit questions
    * [Add Binary](https://github.com/prelangi/CP_IP_Week1_Assignment/blob/master/addBinary.swift)
    * [Longest Palindromic Substring](https://github.com/prelangi/CP_IP_Week1_Assignment/blob/master/longestPalindromicSubstring.swift)
    * [Min Characters For Palindrome](https://github.com/prelangi/CP_IP_Week1_Assignment/blob/master/minCharacters4Palindrome.swift)
+   
+<h2> Binary Search </h2>
+
+   * [Allocate Books](https://github.com/prelangi/InterviewBit/blob/master/AllocateBooks.swift)
+  
