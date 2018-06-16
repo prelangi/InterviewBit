@@ -13,6 +13,8 @@ Output : 0
 NOTE : Think about the case when there are duplicates. Does your current solution work? How does the time complexity change?*
 */
 
+// NOTE: InterviewBit does not support this question in Swift!! 
+
 int getRotationIndex(const vector<int>& nums, int low, int high) {
         //cout << "// getRotationIndex // high: " << high << "low: " << low;
         if (high < low) {
