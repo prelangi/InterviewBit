@@ -42,56 +42,44 @@ Binary search between maxPages and sumOfPages as start and end values.
 import Foundation
 
 class Solution {
-	func books(_ A: inout [Int], _ B: inout Int) -> Int {
-	
-	    
-	    guard (B != 0 || A.count > 0) else { return 0 }
-        
-        if(B>A.count) {
-            return -1
-        }
-        
-        var maxPages = Int.min
-        var pagesSum = 0
-        
+
+    func allocateBooks(_ A: [Int], _ B: Int, _ pagesPerBook: Int)-> Bool {
+        var currPages = 0
+        var numStudents = 1
         for i in 0..<A.count {
-            maxPages = max(maxPages, A[i])
-            pagesSum += A[i]
+            currPages += A[i]
+            if(currPages > pagesPerBook) {
+                currPages = A[i]
+                numStudents += 1
+            }
         }
+        return (numStudents>B) ? false: true
+    }
+    
+    func books(_ A: inout [Int], _ B: inout Int) -> Int {
+        var minPages = -1;
+        var numStudents = B;
         
-        var start = maxPages 
-        var end = pagesSum 
+        if(numStudents > A.count) {
+            return -1;
+        }
+        var sum = A.reduce(0,+)
+        var maxPages = A.max()!
+        
+        var start = maxPages
+        var end = sum
         var mid = start + (end-start)/2
         
-        while(start <= end) {
-            
+        while(start<=end) {
             mid = start + (end-start)/2
-            //print("s:",start,"e:",end,"mid:",mid)
-            if(isViable(B,A,mid)) {
+            
+            if(allocateBooks(A,B,mid)) {
                 end = mid - 1
             }
             else {
                 start = mid + 1
             }
         }
-        
-        return isViable(B,A,start) ? start : -1
-            
-        
-	}
-	
-	func isViable(_ numStudents: Int, _ books: [Int], _ max: Int) -> Bool {
-	    var sum = 0
-	    var currStudents = 1
-	    
-	    for i in 0..<books.count { 
-	        sum += books[i]
-	        if(sum > max) {
-	            sum = books[i]
-	            currStudents += 1
-	        }      
-	    }
-	    //print("currS:",currStudents) 
-	    return currStudents<=numStudents ? true: false
-	}
+        return allocateBooks(A,B,start) ? start : -1
+    }
 }
