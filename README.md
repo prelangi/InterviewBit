@@ -17,4 +17,9 @@ Solutions in Swift/C++ for interviewbit questions
 <h2> Binary Search </h2>
 
    * [Allocate Books](https://github.com/prelangi/InterviewBit/blob/master/AllocateBooks.swift)
+   
+<h2> Dynamic Programming </h2>   
+
+   * [Coin Change](https://github.com/prelangi/InterviewBit/blob/master/CoinChange.swift)
+
   
